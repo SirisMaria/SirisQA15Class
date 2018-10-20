@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/../../first-selenium-project">
       <excludeFolder url="file://$MODULE_DIR$/../../first-selenium-project/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../first-selenium-project/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../first-selenium-project/out" />
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
