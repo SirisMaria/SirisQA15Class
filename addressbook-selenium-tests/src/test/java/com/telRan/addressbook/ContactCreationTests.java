@@ -7,7 +7,12 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void testContactCreation(){
         addNewContact();
-        fillContactForm("Maria", "Siris", "Kfar Sava", "052000000", "siris@gmail.com");
+        fillContactForm(new GroupData()
+                .setFirstName("Maria")
+                .setLastName("Siris")
+                .setAddress("Kfar Sava")
+                .setPhone("052000000")
+                .setEmail("siris@gmail.com"));
         enterNewContact();
     }
 

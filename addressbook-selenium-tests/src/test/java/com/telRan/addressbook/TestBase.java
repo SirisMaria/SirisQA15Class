@@ -1,6 +1,7 @@
 package com.telRan.addressbook;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -83,12 +84,12 @@ public class TestBase {
         wd.findElement(By.name("submit")).click();
     }
 
-    public void fillContactForm(String firstName, String lastName, String address, String phone, String email) {
-        type(By.name("firstname"), firstName);
-        type(By.name("lastname"), lastName);
-        type(By.name("address"), address);
-        type(By.name("mobile"), phone);
-        type(By.name("email"), email);
+    public void fillContactForm(GroupData group) {
+        type(By.name("firstname"), group.getFirstName());
+        type(By.name("lastname"), group.getLastName());
+        type(By.name("address"), group.getAddress());
+        type(By.name("mobile"), group.getPhone());
+        type(By.name("email"), group.getEmail());
     }
 
     public void addNewContact() {
@@ -117,5 +118,30 @@ public class TestBase {
 
     public void popUpWindow() {
         wd.switchTo().alert().accept();
+    }
+
+    public boolean isElementPresent(By locator) {
+        try {
+            wd.findElement(locator);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+    public boolean isContactPresent(){
+        isElementPresent(By.name("selected[]"));
+        return true;
+    }
+
+    public void createContact() {
+        addNewContact();
+        fillContactForm(new GroupData()
+                .setFirstName("Maria")
+                .setLastName("Siris")
+                .setAddress("Kfar Sava")
+                .setPhone("052000000")
+                .setEmail("siris@gmail.com"));
+        enterNewContact();
+
     }
 }
