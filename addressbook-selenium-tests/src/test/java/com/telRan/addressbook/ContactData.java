@@ -1,6 +1,6 @@
 package com.telRan.addressbook;
 
-public class GroupData {
+public class ContactData {
     private String firstName;
     private String lastName;
     private String address;
@@ -8,28 +8,28 @@ public class GroupData {
     private String email;
 
 
-    public GroupData setFirstName(String firstName) {
+    public ContactData setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
 
     }
 
-    public GroupData setLastName(String lastName) {
+    public ContactData setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
 
-    public GroupData setAddress(String address) {
+    public ContactData setAddress(String address) {
         this.address = address;
         return this;
     }
 
-    public GroupData setPhone(String phone) {
+    public ContactData setPhone(String phone) {
         this.phone = phone;
         return this;
     }
 
-    public GroupData setEmail(String email) {
+    public ContactData setEmail(String email) {
         this.email = email;
         return this;
     }
