@@ -7,25 +7,25 @@ import org.testng.annotations.Test;
 public class ContactModificationTests extends TestBase {
     @BeforeMethod
     public void preconditions(){
-        app.addNewContact();
-        if(!app.isContactPresent()) {
-            app.createContact();
+        app.getContact().addNewContact();
+        if(!app.getContact().isContactPresent()) {
+            app.getContact().createContact();
         }
     }
     @Test
     public void testContactModification(){
-        app.pageContactHome();
-        int before = app.getContactCount();
+        app.getContact().pageContactHome();
+        int before = app.getContact().getContactCount();
 
-        app.selectContact();
-        app.fillContactForm(new ContactData()
+        app.getContact().selectContact();
+        app.getContact().fillContactForm(new ContactData()
                 .setFirstName("Vasya")
                 .setLastName("Ivanov")
                 .setAddress("Tel Aviv")
                 .setPhone("0544563221")
                 .setEmail("ivanov@gmail.com"));
-        app.updateContactModification();
-        int after = app.getContactCount();
+        app.getContact().updateContactModification();
+        int after = app.getContact().getContactCount();
         Assert.assertEquals(after,before);
 
     }
